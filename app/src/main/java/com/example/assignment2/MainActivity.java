@@ -2,8 +2,11 @@ package com.example.assignment2;
 
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.text.Editable;
+import android.text.TextWatcher;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.ViewManager;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.LinearLayout;
@@ -16,7 +19,6 @@ public class MainActivity extends AppCompatActivity {
 
     Button addNoteButton;
     EditText editText;
-    List<String> notes = new ArrayList<String>();
     ScrollView scrollView;
     LinearLayout scrollLayout;
 
@@ -33,21 +35,19 @@ public class MainActivity extends AppCompatActivity {
     public void addNote(View v) {
         String note = editText.getText().toString().trim();
         if (!note.equals("")) {
-            notes.add(note);
-            System.out.println(notes.toString());
             View newNote = null;
             newNote = (LinearLayout) View.inflate(MainActivity.this, R.layout.scroll_items, null);
             EditText et = newNote.findViewById(R.id.editNote);
             et.setText(note);
             Button db = newNote.findViewById(R.id.deleteButton);
-
+            db.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    scrollLayout.removeView((View)v.getParent());
+                }
+            });
             scrollLayout.addView(newNote);
         }
 
-    }
-
-    public void deleteNote(View v) {
-        LinearLayout l = (LinearLayout) (v.getParent()).getParent();
-        l.removeView(v);
     }
 }
