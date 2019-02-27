@@ -2,18 +2,17 @@ package com.example.assignment2;
 
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.text.Editable;
-import android.text.TextWatcher;
 import android.view.View;
-import android.view.ViewGroup;
-import android.view.ViewManager;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.LinearLayout;
 import android.widget.ScrollView;
 
-import java.util.ArrayList;
-import java.util.List;
+
+// Kyle Ehlers
+// COMP 3710 - 001
+// 2/26/19
+// Assignment 2
 
 public class MainActivity extends AppCompatActivity {
 
